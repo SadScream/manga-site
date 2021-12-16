@@ -1,0 +1,212 @@
+#content-bar {
+    position: relative;
+    background: #404154;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#content-popular {
+    position: relative;
+    background-image: url("../images/background.svg");
+    background-color: #38394A;
+    border: solid #1B1E24 1px;
+    border-radius: 15px;
+    width: 75%;
+    height: 95%;
+    bottom: 3%;
+    z-index: 1;
+}
+
+#content-popular span {
+    background: #8B446C;
+}
+
+#categories-bar {
+    position: absolute;
+    width: 100%;
+    height: 12%; /* при изменении учесть в .content-popular-list */
+    background: #323241;
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+#categories-popular-text {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.categories-bar-button-wrapper {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.categories-bar-button-wrapper label {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 85%;
+    width: 53%;
+    background: #292936;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 130%;
+}
+
+#manga_label:hover, #manhva_label:hover {
+    height: 90% !important;
+    width: 55% !important;
+    background: #4D4E65 !important;
+}
+
+#manhva:checked ~ #content-popular #manhva_label,
+#manga:checked ~ #content-popular #manga_label {
+    height: 90%;
+    width: 55%;
+    background: #4D4E65;
+}
+
+#manga:checked ~ #content-popular #manhva_label,
+#manhva:checked ~ #content-popular #manga_label {
+    height: 85%;
+    width: 53%;
+    background: #292936;
+}
+
+.content-popular-list {
+    position: absolute;
+
+    /* top и height зависят от величины height #categories-bar */
+    top: 12%;
+    width: 100%;
+
+    height: 88%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: auto;
+}
+
+.content-popular-element-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 44%;
+    height: 48%;
+    margin: 3% 0 0 4%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.content-popular-element {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #292936;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.content-popular-wrapper h5, .content-popular-wrapper h6 {
+    position: relative;
+    text-align: left;
+    height: inherit;
+}
+
+.content-popular-image>img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.content-popular-image {
+    position: relative;
+    width: 35%;
+    height: 45%;
+    box-sizing: border-box;
+    margin-left: 5%;
+    top: 5%;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.content-popular-info {
+    position: relative;
+    top: 5%;
+    width: 60%;
+    height: 45%;
+}
+
+.content-popular-description {
+    position: relative;
+    top: 5%;
+    height: 30%;
+    overflow: hidden;
+    padding: 0 5% 0 5%;
+    text-align: left;
+}
+
+.content-popular-button {
+    position: relative;
+    top: 5%;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-popular-button>button {
+    position: relative;
+    margin-top: 5%;
+    height: auto;
+}
+
+#manhva:checked ~ #content-popular .manhva,
+#manga:checked ~ #content-popular .manga{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+}
+
+#manhva:checked ~ #content-popular .manga,
+#manga:checked ~ #content-popular .manhva{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+}
+
+.content-popular-list::-webkit-scrollbar {
+    width: 20px;
+}
+.content-popular-list::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.content-popular-list::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+.content-popular-list::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}

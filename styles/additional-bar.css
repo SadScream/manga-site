@@ -1,0 +1,35 @@
+#info-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    background: #292936;
+    width: 100%;
+    height: auto;
+}
+
+.info-bar-block {
+    width: auto;
+    min-width: 10%;
+    max-width: 17%;
+    height: auto;
+    margin-right: 1%;
+    margin-bottom: 15px;
+}
+
+.info-bar-image-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 5%;
+}
+
+.info-bar-image-container img {
+    width: 28%;
+    height: 28%;
+    margin: 15px 5px 0 0;
+}
