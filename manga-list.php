@@ -73,7 +73,19 @@ require_once("database/publishers.php");
                     </div>
                 </div>
                 <div id="filter-wrapper">
+                    <div id="search-filter-wrapper">
+                        <div id="search-filter-genres-wrapper">
+                            <h4>Жанры</h4>
+                            <div id="search-filter-genres">
+                                <h5>Романтика</h5>
+                                <h5>Романтика</h5>
+                                <h5>Романтика</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="search-filter-buttons">
 
+                    </div>
                 </div>
             </div>
         </div>
