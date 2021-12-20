@@ -7,11 +7,11 @@ require_once("database/publishers.php");
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Главная</title>
     <link rel="stylesheet" href="styles/fonts.css?<?php echo date('h:i:s'); ?>">
-    <link rel="stylesheet" href="styles/base.css?<?php echo date('h:i:s'); ?>">
-    <link rel="stylesheet" href="styles/navigation-bar.css?<?php echo date('h:i:s'); ?>">
-    <link rel="stylesheet" href="styles/content-bar.css?<?php echo date('h:i:s'); ?>">
+    <link rel="stylesheet" href="styles/base-main.css?<?php echo date('h:i:s'); ?>">
+    <link rel="stylesheet" href="styles/navigation-bar-main.css?<?php echo date('h:i:s'); ?>">
+    <link rel="stylesheet" href="styles/content-bar-main.css?<?php echo date('h:i:s'); ?>">
     <link rel="stylesheet" href="styles/additional-bar.css?<?php echo date('h:i:s'); ?>">
 </head>
 <body>
@@ -22,7 +22,7 @@ require_once("database/publishers.php");
             </div>
             <div id="navigation-bar-buttons">
                 <div class="navigation-bar-button"><a href="">Главная</a></div>
-                <div class="navigation-bar-button"><a href="">Каталог</a></div>
+                <div class="navigation-bar-button"><a href="manga-list.php">Каталог</a></div>
                 <div class="navigation-bar-button"><a href="">Контакты</a></div>
                 <div class="navigation-bar-button"><a href="">О нас</a></div>
             </div>

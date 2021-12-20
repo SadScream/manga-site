@@ -1,0 +1,15 @@
+#content-bar {
+    position: relative;
+    background: #404154;
+    width: 100%;
+    height: 100%;
+}
+
+.element {
+    position: relative;
+    display: inline-block;
+    width: 20%;
+    height: 10%;
+    background-color: #003A66;
+    margin: 5%;
+}
