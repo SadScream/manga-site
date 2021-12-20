@@ -2,8 +2,7 @@
     position: relative;
     background: #292936;
     width: 100%;
-    height: auto;
-    min-height: 8%;
+    height: 10vh;
 }
 
 #navigation-bar-title-wrapper {
@@ -20,7 +19,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    font-size: 300%;
+    font-size: 180%;
 }
 
 #navigation-bar-title a {
@@ -34,6 +33,7 @@
     display: flex;
     flex-direction: row;
     font-family: Roboto;
+    font-size: 90%;
     left: 50%;
     width: 50%;
     height: 100%;

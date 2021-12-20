@@ -2,7 +2,7 @@
     position: relative;
     background: #404154;
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,11 +14,10 @@
     background-color: #38394A;
     border: solid #1B1E24 1px;
     border-radius: 15px;
-    width: 75%;
-    height: 95%;
-    bottom: 3%;
-    z-index: 1;
-    overflow-x:hidden;
+    width: 72vw;
+    height: auto;
+    min-height: 90vh;
+    top: -3vh;
 }
 
 #content-popular span {
@@ -26,11 +25,10 @@
 }
 
 #categories-bar {
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 12%; /* при изменении учесть в .content-popular-list */
+    height: 12vh;
     background: #323241;
-    overflow: hidden;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     display: flex;
@@ -38,6 +36,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-end;
+    font-weight: bold;
 }
 
 #categories-popular-text {
@@ -46,7 +45,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
 }
 
 .categories-bar-button-wrapper {
@@ -66,7 +64,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 130%;
+    font-size: 110%;
 }
 
 #manga_label:hover, #manhva_label:hover {
@@ -90,25 +88,27 @@
 }
 
 .content-popular-list {
-    position: absolute;
-
-    /* top и height зависят от величины height #categories-bar */
-    top: 12%;
-    width: 100%;
-
-    height: 88%;
+    position: relative;
+    width: auto;
+    height: 88vh;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    overflow: auto;
-    overflow-x:hidden;
+    padding: 0vw 2vw 0vw 2vw;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: baseline;
+    overflow-y: overlay;
+    overflow-x: hidden;
 }
 
 .content-popular-element-wrapper {
     position: relative;
-    display: inline-block;
-    width: 44%;
-    height: 48%;
-    margin: 3% 0 0 4%;
+    width: 33vw;
+    height: 60vh;
+    min-height: 380px;
+    max-height: 490px;
+    margin: 3vh 0 3vh 0; /*менять на 1vh в вертикали*/
     border-radius: 5px;
     text-align: center;
 }
@@ -130,6 +130,18 @@
     height: inherit;
 }
 
+.content-popular-image {
+    position: relative;
+    width: 35%;
+    height: 45%;
+    box-sizing: border-box;
+    margin-left: 1vw;
+    top: 1vw;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
 .content-popular-image>img {
     position: absolute;
     width: 100%;
@@ -139,39 +151,26 @@
     box-sizing: border-box;
 }
 
-.content-popular-image {
-    position: relative;
-    width: 35%;
-    height: 45%;
-    box-sizing: border-box;
-    margin-left: 5%;
-    top: 5%;
-    display: flex;
-    align-items: flex-start;
-    overflow: hidden;
-}
-
 .content-popular-info {
     position: relative;
-    top: 5%;
-    width: 60%;
+    top: 1vw;
+    width: calc(65% - 1vw);
     height: 45%;
 }
 
 .content-popular-description {
     position: relative;
-    top: 5%;
-    height: 30%;
+    height: 40%;
     overflow: hidden;
-    padding: 0 5% 0 5%;
+    padding: 1vw 1vw 0 1vw;
     text-align: left;
 }
 
 .content-popular-button {
     position: relative;
-    top: 5%;
+    /*top: 5%;*/
     width: 100%;
-    height: 15%;
+    height: calc(15% - 1vw);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,7 +178,7 @@
 
 .content-popular-button>button {
     position: relative;
-    margin-top: 5%;
+    /*margin-top: 5%;*/
     height: auto;
 }
 

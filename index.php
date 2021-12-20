@@ -9,8 +9,8 @@ require_once("database/publishers.php");
     <meta charset="UTF-8">
     <title>Главная</title>
     <link rel="stylesheet" href="styles/fonts.css?<?php echo date('h:i:s'); ?>">
-    <link rel="stylesheet" href="styles/base-main.css?<?php echo date('h:i:s'); ?>">
-    <link rel="stylesheet" href="styles/navigation-bar-main.css?<?php echo date('h:i:s'); ?>">
+    <link rel="stylesheet" href="styles/base.css?<?php echo date('h:i:s'); ?>">
+    <link rel="stylesheet" href="styles/navigation-bar.css?<?php echo date('h:i:s'); ?>">
     <link rel="stylesheet" href="styles/content-bar-main.css?<?php echo date('h:i:s'); ?>">
     <link rel="stylesheet" href="styles/additional-bar.css?<?php echo date('h:i:s'); ?>">
 </head>
@@ -21,7 +21,7 @@ require_once("database/publishers.php");
                 <div id="navigation-bar-title"><a href="">MangaStore</a></div>
             </div>
             <div id="navigation-bar-buttons">
-                <div class="navigation-bar-button"><a href="">Главная</a></div>
+                <div class="navigation-bar-button"><a href="index.php">Главная</a></div>
                 <div class="navigation-bar-button"><a href="manga-list.php">Каталог</a></div>
                 <div class="navigation-bar-button"><a href="">Контакты</a></div>
                 <div class="navigation-bar-button"><a href="">О нас</a></div>
@@ -114,9 +114,9 @@ require_once("database/publishers.php");
                 <h6><a href="">О нарушении авторских прав обращайтесь сюда</a></h6>
             </div>
             <div class="info-bar-block">
-                <h5>Twitter</h5>
-                <h6><a href="">twitter</a> - подписывайтесь на наш Твиттер</h6>
-                <h6><a href="">instagram</a> - подписывайтесь на наш Инстаграм</h6>
+                <h5>Соц сети</h5>
+                <h6><a href="">Twitter</a> - подписывайтесь на наш Твиттер</h6>
+                <h6><a href="">Instagram</a> - подписывайтесь на наш Инстаграм</h6>
             </div>
             <div class="info-bar-block">
                 <h5>О нас</h5>
@@ -126,66 +126,15 @@ require_once("database/publishers.php");
         </div>
     </div>
     <script src="scripts/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript">
-        function setSize(event) {
-            // подгонка размера элементов под размер экрана
-
-            let popular_element_wrapper = $(".content-popular-element-wrapper"),
-                popular_element_image_block = $(".content-popular-image"),
-                popular_element_img = $(".content-popular-image>img"),
-                popular_element_info = $(".content-popular-info"),
-                popular_element_description = $(".content-popular-description"),
-                popular_element_button = $(".content-popular-button");
-
-            for (let i = 0; i < popular_element_info.length; i++) {
-                let wrapper_block = popular_element_wrapper[i],
-                    image_block = popular_element_image_block[i],
-                    img = popular_element_img[i],
-                    info = popular_element_info[i],
-                    desc = popular_element_description[i],
-                    button = popular_element_button[i];
-
-                if (window.innerWidth/1.44 > window.innerHeight) {
-                    // горизонтально
-
-                    $(wrapper_block).css("height", "48%");
-
-                    $(image_block).css({"width": "35%",
-                        "height": "45%",
-                        "alignItems": "flex-start",
-                        "justifyContent": "flex-start",
-                        "marginLeft": "5%",
-                        "top": "5%"
-                    });
-
-                    $(img).css({"width": "auto", "height": "100%"});
-                    $(info).css({"width": "60%", "height": "45%"});
-                    $(desc).css({"height": "33%", "top": "2%"});
-                    $(button).css({"height": "20%", "top": "0%"});
-                }
-                else {
-                    // вертикально
-
-                    $(wrapper_block).css("height", "30%");
-
-                    $(image_block).css({"width": "100%",
-                        "height": "50%",
-                        "alignItems": "center",
-                        "justifyContent": "center",
-                        "marginLeft": "0%",
-                        "top": "0%"
-                    });
-
-                    $(img).css({"width": "auto", "height": "85%"});
-                    $(info).css({"width": "100%", "height": "15%", "top": "0%"});
-                    $(desc).css({"height": "20%", "top": "0%"});
-                    $(button).css({"height": "15%", "top": "0%"});
-                }
-            }
-        }
-
-        setSize(null);
-        window.addEventListener('resize', setSize, true);
+    <script src="scripts/adaptive-window.js"></script>
+    <script src="scripts/adaptive-window-main.js"></script>
+    <script>
+        setHeaderSize(null);
+        setContentPopularSize(null);
+        setAdditionalSize(null);
+        window.addEventListener('resize', setHeaderSize, true);
+        window.addEventListener('resize', setContentPopularSize, true);
+        window.addEventListener('resize', setAdditionalSize, true);
     </script>
 </body>
 </html>
