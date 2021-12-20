@@ -1,6 +1,7 @@
 <?php
 require_once("database/connect.php");
 require_once("database/genres.php");
+require_once("database/publishers.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +23,6 @@ require_once("database/genres.php");
             <div id="navigation-bar-buttons">
                 <div class="navigation-bar-button"><a href="">Главная</a></div>
                 <div class="navigation-bar-button"><a href="">Каталог</a></div>
-                <div class="navigation-bar-button"><a href="">Арты</a></div>
                 <div class="navigation-bar-button"><a href="">Контакты</a></div>
                 <div class="navigation-bar-button"><a href="">О нас</a></div>
             </div>
@@ -33,7 +33,7 @@ require_once("database/genres.php");
             <input type="radio" name="Categories" id="manhva">
             <div id="content-popular">
                 <div id="categories-bar">
-                    <div id="categories-popular-text">Популярное</div>
+                    <div id="categories-popular-text">Популярная манга</div>
                     <div class="categories-bar-button-wrapper">
                         <label id="manga_label" for="manga">Манга</label>
                     </div>
@@ -49,12 +49,15 @@ require_once("database/genres.php");
                      */
 
                     $all_genres = get_genres_array($connect);
-                    $query_all_manga = "select * from manga";
+                    $all_publishers = get_publishers_array($connect);
+                    $query_all_manga = "select * from manga where views>=10000 order by views desc";
                     $q_all = mysqli_query($connect, $query_all_manga) or die(mysqli_error($connect));
-                    $type = "manga";
+
 
                     if ($q_all) {
                         while ($row = mysqli_fetch_array($q_all)) {
+                            $type = "manga";
+
                             if ($row['type'] == 1) {
                                 $type = "manhva";
                             }
@@ -66,14 +69,17 @@ require_once("database/genres.php");
                             $name_ru = $names['name_ru'];
                             $name_additional = $names['name_en'];
 
+                            $release_year = $row['release_year'];
+
                             if ($name_additional == null) {
                                 $name_additional = $names['name_another'];
                             }
 
                             $genres = get_manga_genres_str($connect, $all_genres, $row['id']);
+                            $publishers = get_manga_publishers_str($connect, $all_publishers, $row['id']);
 
                             echo "
-                                <div class='content-popular-element-wrapper {$type}'>
+                                <div class='content-popular-element-wrapper {$type}' id='{$row['id']}'>
                                     <div class='content-popular-element'>
                                         <div class='content-popular-image'>
                                             <img src='images/{$type}/{$row['image']}'>
@@ -81,6 +87,8 @@ require_once("database/genres.php");
                                         <div class='content-popular-info'>
                                             <h4>{$name_ru}</h4>
                                             <h6>Жанры: {$genres}</h6>
+                                            <h6>Издательство: {$publishers}</h6>
+                                            <h6>Год: {$release_year}</h6>
                                         </div>
                                         <div class='content-popular-description'>
                                             <h5>Описание: {$row['description']}<h5>
@@ -95,119 +103,25 @@ require_once("database/genres.php");
                     }
 
                     ?>
-
-<!--                    <div class="content-popular-element-wrapper manga">-->
-<!--                        <div class="content-popular-element">-->
-<!--                            <div class="content-popular-image">-->
-<!--                                <img src="images/manga/1.jpg">-->
-<!--                            </div>-->
-<!--                            <div class="content-popular-info">-->
-<!--                                <h4>Shingeki no Kyojin</h4>-->
-<!--                                <h6>Genres: </h6>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="content-popular-element-wrapper manga">-->
-<!--                        <div class="content-popular-element">-->
-<!--                            <div class="content-popular-image">-->
-<!--                                <img src="images/manga/2.jpg">-->
-<!--                            </div>-->
-<!--                            <div class="content-popular-info">-->
-<!--                                <h4>Tokyo Revengers</h4>-->
-<!--                                <h6>Genres: </h6>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="content-popular-element-wrapper manga">-->
-<!--                        <div class="content-popular-element">-->
-<!--                            <div class="content-popular-image">-->
-<!--                                <img src="images/manga/4.jpg">-->
-<!--                            </div>-->
-<!--                            <div class="content-popular-info">-->
-<!--                                <h4>Adabana</h4>-->
-<!--                                <h6>Genres: </h6>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="content-popular-element-wrapper manga">-->
-<!--                        <div class="content-popular-element">-->
-<!--                            <div class="content-popular-image">-->
-<!--                                <img src="images/manga/5.jpg">-->
-<!--                            </div>-->
-<!--                            <div class="content-popular-info">-->
-<!--                                <h4>Bungou Stray Dogs</h4>-->
-<!--                                <h6>Genres: </h6>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="content-popular-element-wrapper manhva">-->
-<!--                        <div class="content-popular-element">-->
-<!--                            <div class="content-popular-image">-->
-<!--                                <img src="images/manhva/2.jpg">-->
-<!--                            </div>-->
-<!--                            <div class="content-popular-info">-->
-<!--                                <h4>The Abandoned Empress</h4>-->
-<!--                                <h6>Genres: </h6>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="content-popular-element-wrapper manhva">-->
-<!--                        <div class="content-popular-element">-->
-<!--                            <div class="content-popular-image">-->
-<!--                                <img src="images/manhva/3.jpg">-->
-<!--                            </div>-->
-<!--                            <div class="content-popular-info">-->
-<!--                                <h4>Pigpen</h4>-->
-<!--                                <h6>Genres: </h6>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="content-popular-element-wrapper manhva">-->
-<!--                        <div class="content-popular-element">-->
-<!--                            <div class="content-popular-image">-->
-<!--                                <img src="images/manhva/4.jpg">-->
-<!--                            </div>-->
-<!--                            <div class="content-popular-info">-->
-<!--                                <h4>Smell Foul</h4>-->
-<!--                                <h6>Genres: </h6>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
                 </div>
             </div>
         </div>
         <span></span>
         <div id="info-bar">
             <div class="info-bar-block">
-                <h5>Галерея</h5>
-                <div class="info-bar-image-container">
-                    <img src="images/gallery/low/1.jpg">
-                    <img src="images/gallery/low/2.jpeg">
-                    <img src="images/gallery/low/3.jpg">
-                    <img src="images/gallery/low/4.png">
-                    <img src="images/gallery/low/5.jpg">
-                    <img src="images/gallery/low/6.png">
-                    <img src="images/gallery/low/7.png">
-                </div>
-                <button>Еще</button>
-            </div>
-            <div class="info-bar-block">
-                <h5>GMail</h5>
-                <h6><a href="">Collaboration</a></h6>
-                <h6><a href="">Bug reports and offers</a></h6>
+                <h5>Обратная связь</h5>
+                <h6><a href="">Баги и предложения</a></h6>
+                <h6><a href="">О нарушении авторских прав обращайтесь сюда</a></h6>
             </div>
             <div class="info-bar-block">
                 <h5>Twitter</h5>
-                <h6><a href="">link1</a> - this is link one</h6>
-                <h6><a href="">link2</a> - this is link two</h6>
-                <h6><a href="">link3</a> - this is link three</h6>
-                <h6><a href="">link4</a> - this is link four</h6>
-                <h6><a href="">link5</a> - this is link five</h6>
+                <h6><a href="">twitter</a> - подписывайтесь на наш Твиттер</h6>
+                <h6><a href="">instagram</a> - подписывайтесь на наш Инстаграм</h6>
             </div>
             <div class="info-bar-block">
                 <h5>О нас</h5>
-                <h6>Привет мир</h6>
-                <h6>Copyright © 2021 SadScream Company</h6>
+                <h6>Сайт с манго 0_о</h6>
+                <h6>Copyright © 2021 SadScream</h6>
             </div>
         </div>
     </div>

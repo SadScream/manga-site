@@ -18,6 +18,7 @@
     height: 95%;
     bottom: 3%;
     z-index: 1;
+    overflow-x:hidden;
 }
 
 #content-popular span {
@@ -99,6 +100,7 @@
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     overflow: auto;
+    overflow-x:hidden;
 }
 
 .content-popular-element-wrapper {
@@ -193,6 +195,10 @@
     opacity: 0;
     transform: scale(0);
     position: absolute;
+}
+
+.content-popular-list::-webkit-scrollbar-corner {
+    opacity: 0;
 }
 
 .content-popular-list::-webkit-scrollbar {
