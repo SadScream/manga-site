@@ -8,8 +8,8 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-images/manga/*
-images/manhva/*
+.images/manga
+.images/manhva
 
 # Generated files
 .idea/**/contentModel.xml
