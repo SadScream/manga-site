@@ -11,7 +11,7 @@ function get_publishers_array(mysqli $connect) {
     $q_publisher_names = mysqli_query($connect, $query_publisher_names) or die(mysqli_error($connect));
     $row = mysqli_fetch_array($q_publisher_names);
 
-    for ($i = $row['id']; $row; $i=$row['id']) {
+    for ($i = $row['id']; $row; $i = $row['id']) {
         $all_publishers[$i] = $row['name'];
         $row = mysqli_fetch_array($q_publisher_names);
     }

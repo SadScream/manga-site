@@ -73,13 +73,86 @@ require_once("database/publishers.php");
                     </div>
                 </div>
                 <div id="filter-wrapper">
-                    <div id="search-filter-wrapper">
-                        <div id="search-filter-genres-wrapper">
-                            <h4>Жанры</h4>
-                            <div id="search-filter-genres">
-                                <h5>Романтика</h5>
-                                <h5>Романтика</h5>
-                                <h5>Романтика</h5>
+                    <div id="search-filter">
+                        <div id="search-filter-wrapper">
+                            <div class="search-filter-name">
+                                <input type="text" placeholder="Поиск на названию" class="search-filter-input name">
+                            </div>
+                            <div class="search-filter-group">
+                                <div class="search-filter-title">Год выпуска</div>
+                                <div class="search-filter-content">
+                                    <div class="search-filter-input-group">
+                                        <input type="text" placeholder="От" class="search-filter-input">
+                                        <span>—</span>
+                                        <input type="text" placeholder="До" class="search-filter-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-filter-group">
+                                <div class="search-filter-title">Количество просмотров</div>
+                                <div class="search-filter-content">
+                                    <div class="search-filter-input-group">
+                                        <input type="text" placeholder="От" class="search-filter-input">
+                                        <span>—</span>
+                                        <input type="text" placeholder="До" class="search-filter-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-filter-group">
+                                <div class="search-filter-title">Жанры</div>
+                                <div class="search-filter-content">
+                                    <?php
+                                    /**
+                                     * @var mysqli $connect
+                                     */
+
+                                    $all_genres = get_genres_array($connect);
+                                    foreach ($all_genres as $i => $name) {
+                                        $name = mb_convert_case($name, MB_CASE_TITLE, 'UTF-8');
+
+                                        echo "
+                                            <label class='search-filter-checkbox-wrapper'>
+                                                <input type='checkbox' value='{$i}' class='search-filter-checkbox'>
+                                                <span class='checkbox-text'>{$name}</span>
+                                            </label>
+                                        ";
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="search-filter-group">
+                                <div class="search-filter-title">Издатели</div>
+                                <div class="search-filter-content">
+                                    <?php
+                                    /**
+                                     * @var mysqli $connect
+                                     */
+
+                                    $all_publishers = get_publishers_array($connect);
+
+                                    foreach ($all_publishers as $i => $name) {
+                                        echo "
+                                            <label class='search-filter-checkbox-wrapper'>
+                                                <input type='checkbox' value='{$i}' class='search-filter-checkbox'>
+                                                <span class='checkbox-text'>{$name}</span>
+                                            </label>
+                                        ";
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="search-filter-group">
+                                <div class="search-filter-title">Тип</div>
+                                <div class="search-filter-content">
+                                    <label class="search-filter-checkbox-wrapper">
+                                        <input type="checkbox" value="0" class="search-filter-checkbox">
+                                        <span class="checkbox-text">Манга</span>
+                                    </label>
+                                    <label class="search-filter-checkbox-wrapper">
+                                        <input type="checkbox" value="1" class="search-filter-checkbox">
+                                        <span class="checkbox-text">Манхва</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -112,6 +185,13 @@ require_once("database/publishers.php");
     <script src="scripts/adaptive-window.js"></script>
     <script src="scripts/adaptive-window-catalog.js"></script>
     <script>
+        function checkboxClicked(sender) {
+            $(sender).parent().children(".checkbox").focus();
+        }
+        $(".checkbox-text").click(function (e) {
+            checkboxClicked(this);
+        })
+
         setHeaderSize(null);
         // setFilterWrapperSize(null);
         setAdditionalSize(null);
