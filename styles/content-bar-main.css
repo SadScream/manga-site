@@ -124,12 +124,6 @@
     align-content: flex-start;
 }
 
-.content-popular-wrapper h5, .content-popular-wrapper h6 {
-    position: relative;
-    text-align: left;
-    height: inherit;
-}
-
 .content-popular-image {
     position: relative;
     width: 35%;
@@ -168,7 +162,6 @@
 
 .content-popular-button {
     position: relative;
-    /*top: 5%;*/
     width: 100%;
     height: calc(15% - 1vw);
     display: flex;
@@ -178,7 +171,6 @@
 
 .content-popular-button>button {
     position: relative;
-    /*margin-top: 5%;*/
     height: auto;
 }
 

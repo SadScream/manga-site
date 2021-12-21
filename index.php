@@ -50,7 +50,7 @@ require_once("database/publishers.php");
 
                     $all_genres = get_genres_array($connect);
                     $all_publishers = get_publishers_array($connect);
-                    $query_all_manga = "select * from manga where views>=10000 order by views desc";
+                    $query_all_manga = "select * from manga where views>=8000 order by views desc";
                     $q_all = mysqli_query($connect, $query_all_manga) or die(mysqli_error($connect));
 
 

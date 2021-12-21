@@ -1,5 +1,4 @@
-let h_font = $("h4,h5,h6"),
-    categories_bar = $("#categories-bar"),
+let categories_bar = $("#categories-bar"),
     content_popular = $("#content-popular"),
     pe_wrapper = $(".content-popular-element-wrapper"),
     pe_image_block = $(".content-popular-image"),
@@ -20,7 +19,9 @@ function setContentPopularSize(event) {
         $(".content-popular-element-wrapper h4").css({"fontSize": "1em"});
         $(".content-popular-element-wrapper h5").css({"fontSize": "0.9em"});
         $(".content-popular-element-wrapper h6").css({"fontSize": "0.8em"});
-        $(h_font).css({"marginTop": "15px"});
+        $("h4").css({"marginTop": "5px"});
+        $("h5").css({"marginTop": "15px"});
+        $("h6").css({"marginTop": "10px"});
         $(content_popular).css({"width": "72vw"});
         $(categories_bar).css({"height": "12vh"});
 
@@ -51,7 +52,7 @@ function setContentPopularSize(event) {
         $(".content-popular-element-wrapper h4").css({"fontSize": "1.2em"});
         $(".content-popular-element-wrapper h5").css({"fontSize": "1.1em"});
         $(".content-popular-element-wrapper h6").css({"fontSize": "1em"});
-        $(h_font).css({"marginTop": "5px"});
+        $("h4,h5,h6").css({"marginTop": "5px"});
         $(content_popular).css({"width": "90vw"});
         $(categories_bar).css({"height": "8vh"});
 
