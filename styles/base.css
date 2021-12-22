@@ -3,6 +3,7 @@
     margin: 0;
     font-family: Roboto;
     color: #D0CEC5;
+    box-sizing: border-box;
 }
 
 #main {

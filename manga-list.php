@@ -79,8 +79,8 @@ $query_all_manga .= $select_all_condition;
             <div id="navigation-bar-buttons">
                 <div class="navigation-bar-button"><a href="index.php">Главная</a></div>
                 <div class="navigation-bar-button"><a href="manga-list.php">Каталог</a></div>
-                <div class="navigation-bar-button"><a href="">Контакты</a></div>
-                <div class="navigation-bar-button"><a href="">О нас</a></div>
+                <div class="navigation-bar-button"><a href="#info-bar">Контакты</a></div>
+                <div class="navigation-bar-button"><a href="#info-bar">О нас</a></div>
             </div>
         </div>
         <span></span>
@@ -139,7 +139,7 @@ $query_all_manga .= $select_all_condition;
 
                                 echo "
                                     <div class='manga-card-wrapper'>
-                                        <a href=''>
+                                        <a href='title.php?id={$row['id']}' target='_blank'>
                                             <div class='manga-card-info'>
                                                 <h5 class='manga-card-type'>{$type_s}</h5>
                                                 <h3 class='manga-card-name'>{$name_ru}</h3>

@@ -23,8 +23,8 @@ require_once("database/publishers.php");
             <div id="navigation-bar-buttons">
                 <div class="navigation-bar-button"><a href="index.php">Главная</a></div>
                 <div class="navigation-bar-button"><a href="manga-list.php">Каталог</a></div>
-                <div class="navigation-bar-button"><a href="">Контакты</a></div>
-                <div class="navigation-bar-button"><a href="">О нас</a></div>
+                <div class="navigation-bar-button"><a href="#info-bar">Контакты</a></div>
+                <div class="navigation-bar-button"><a href="#info-bar">О нас</a></div>
             </div>
         </div>
         <span></span>
@@ -94,7 +94,7 @@ require_once("database/publishers.php");
                                             <h5>Описание: {$row['description']}<h5>
                                         </div>
                                         <div class='content-popular-button'>
-                                            <button>Читать</button>
+                                            <button><a href='title.php?id={$row['id']}' target='_blank'>Подробрее</a></button>
                                         </div>
                                     </div>
                                 </div>    
