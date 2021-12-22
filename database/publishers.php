@@ -19,6 +19,19 @@ function get_publishers_array(mysqli $connect) {
     return $all_publishers;
 }
 
+function get_manga_publishers($connect, $id) {
+    $result = array();
+
+    $query_publishers = "select * from manga_publishers where manga_id={$id}";
+    $q_publishers = mysqli_query($connect, $query_publishers) or die(mysqli_error($connect));
+
+    while ($row = mysqli_fetch_array($q_publishers)) {
+        array_push($result, strval($row["publisher_id"]));
+    }
+
+    return $result;
+}
+
 function get_manga_publishers_str($connect, $all_publishers, $id) {
     $result = "";
 

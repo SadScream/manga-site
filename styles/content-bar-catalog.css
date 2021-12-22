@@ -8,16 +8,16 @@
 }
 
 #container {
-    max-width: 1200px;
+    max-width: 1150px;
     width: 90vw;
     height: auto;
     min-height: 90vh;
-    margin: 15px 15px 15px 15px;
+    margin: 15px;
 }
 
 #manga-list-page-wrapper {
     float: left;
-    width: 70%;
+    width: 830px;
     height: 100%;
     background-color: #323241;
     border-radius: 7px;
@@ -87,8 +87,8 @@
     top: 15px;
     border-radius: 7px;
     display: inline-block;
-    height: 90vh;
-    width: 30%;
+    height: 85vh;
+    width: 320px;
     float: right;
     background-color: #323241;
     box-sizing: border-box;
@@ -194,8 +194,28 @@
 }
 
 #search-filter-buttons {
+    position: absolute;
+    box-sizing: border-box;
     width: 100%;
     height: 44px;
+    padding: 6px 13px;
+    bottom: 0;
+    display: flex;
+}
+
+#search-filter-buttons button {
+    flex: 1 0 0;
+    font-size: 14px;
+}
+
+.button-accept {
+    background-color: #292936;
+    float: right;
+    margin-left: 15px;
+}
+
+.button-accept:hover {
+    background-color: #00ba37;
 }
 
 #search-filter::-webkit-scrollbar-corner {

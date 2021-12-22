@@ -19,6 +19,19 @@ function get_genres_array(mysqli $connect) {
     return $all_genres;
 }
 
+function get_manga_genres($connect, $id) {
+    $result = array();
+
+    $query_genres = "select * from manga_genres where manga_id={$id}";
+    $q_genres = mysqli_query($connect, $query_genres) or die(mysqli_error($connect));
+
+    while ($row = mysqli_fetch_array($q_genres)) {
+        array_push($result, strval($row["genre_id"]));
+    }
+
+    return $result;
+}
+
 function get_manga_genres_str($connect, $all_genres, $id) {
     $result = "";
 

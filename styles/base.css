@@ -31,11 +31,15 @@ h4,h5,h6 {
 }
 
 button {
+    display: inline-block;
     background: #333844;
     border: solid #1B1E24 1px;
     border-radius: 5px;
     padding: 5px 15px 5px 15px;
     color: white;
+    cursor: pointer;
+    user-select: none;
+    min-width: 16px;
 }
 
 button:hover {
