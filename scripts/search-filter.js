@@ -31,11 +31,13 @@ function setResetFiltersListener() {
 }
 
 function checkFields(year_from, year_to, views_from, views_to) {
+    let currentYear = new Date().getFullYear();
+
     if (!isEmpty(year_from) && year_from < 1930) {
         alert("Год не может быть меньше 1930");
         return false;
-    } else if (!isEmpty(year_to) && year_to > 2021) {
-        alert("Год не может быть больше 2021");
+    } else if (!isEmpty(year_to) && year_to > currentYear) {
+        alert(`Год не может быть больше ${currentYear}`);
         return false;
     } else if (!isEmpty(views_from) && views_from < 0) {
         alert("Количество просмотров не может быть отрицательным");

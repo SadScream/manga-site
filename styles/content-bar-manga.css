@@ -2,7 +2,7 @@
     position: relative;
     background: #404154;
     width: 100%;
-    height: auto;
+    min-height: calc(100vh - 80px - 105px - 8px);
     padding: 18px 0px 18px;
     display: flex;
     justify-content: center;
@@ -52,9 +52,9 @@
     display: inline-block;
     vertical-align: top;
     width: 75%!important;
-    height: 100%;
+    height: auto;
     background-color: #323241;
-    margin: -1rem;
+    margin: -1rem -1rem 15px -1rem;
     top: 1rem;
     left: 1rem;
     border-radius: 10px;
@@ -80,4 +80,21 @@
 
 .description {
     margin: 10px 0 2rem;
+}
+
+@media (max-width: 1280px) {
+    #column-image-wrapper {
+        width: 100% !important;
+        height: auto;
+    }
+
+    #column-image {
+        max-width: 350px;
+        margin: auto;
+    }
+
+    #column-info-wrapper {
+        width: calc(100% - 55px)!important;
+        margin: 0 15px 15px 15px;
+    }
 }

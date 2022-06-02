@@ -63,6 +63,7 @@ $query_all_manga .= $select_all_condition;
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Каталог</title>
     <link rel="stylesheet" href="styles/fonts.css?<?php echo date('h:i:s'); ?>">
     <link rel="stylesheet" href="styles/base.css?<?php echo date('h:i:s'); ?>">
@@ -170,7 +171,7 @@ $query_all_manga .= $select_all_condition;
                                 </div>
                             </div>
                             <div class="search-filter-group">
-                                <div class="search-filter-title">Количество просмотров</div>
+                                <div class="search-filter-title">Количество читателей</div>
                                 <div class="search-filter-content">
                                     <div id="views" class="search-filter-input-group">
                                         <input type="text" placeholder="От" class="search-filter-input" value="<?php echo $views_from;?>">
@@ -267,7 +268,7 @@ $query_all_manga .= $select_all_condition;
             <div class="info-bar-block">
                 <h5>Обратная связь</h5>
                 <h6><a href="">Баги и предложения</a></h6>
-                <h6><a href="">О нарушении авторских прав обращайтесь сюда</a></h6>
+                <h6><a href="">Обращение</a></h6>
             </div>
             <div class="info-bar-block">
                 <h5>Соц сети</h5>
@@ -276,22 +277,14 @@ $query_all_manga .= $select_all_condition;
             </div>
             <div class="info-bar-block">
                 <h5>О нас</h5>
-                <h6>Сайт с манго 0_о</h6>
-                <h6>Copyright © 2021 SadScream</h6>
+                <h6>Комиксы</h6>
+                <h6>Copyright © 2022 SadScream</h6>
             </div>
         </div>
     </div>
     <script src="scripts/jquery-3.6.0.min.js"></script>
-    <script src="scripts/adaptive-window.js"></script>
-    <script src="scripts/adaptive-window-catalog.js"></script>
     <script src="scripts/search-filter.js"></script>
     <script>
-        setHeaderSize(null);
-        // setFilterWrapperSize(null);
-        setAdditionalSize(null);
-        window.addEventListener('resize', setHeaderSize, true);
-        // window.addEventListener('resize', setFilterWrapperSize, true);
-        window.addEventListener('resize', setAdditionalSize, true);
     </script>
 </body>
 </html>

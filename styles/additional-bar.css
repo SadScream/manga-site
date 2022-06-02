@@ -6,7 +6,7 @@
     position: relative;
     background: #292936;
     width: 100%;
-    height: auto;
+    height: 105px;
 }
 
 .info-bar-block {
@@ -33,3 +33,16 @@
 /*    height: 28%;*/
 /*    margin: 15px 5px 0 0;*/
 /*}*/
+
+@media (orientation: landscape) {
+    #info-bar {
+        font-size: 1rem;
+    }
+}
+
+@media (orientation: portrait) {
+    #info-bar {
+        font-size: 85%;
+        height: auto;
+    }
+}

@@ -57,6 +57,7 @@ else {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title><?php echo $name['name_ru']; ?></title>
     <link rel="stylesheet" href="styles/fonts.css?<?php echo date('h:i:s'); ?>">
     <link rel="stylesheet" href="styles/base.css?<?php echo date('h:i:s'); ?>">
@@ -124,7 +125,7 @@ else {
                                 <div class="value"><?php echo $publishers; ?></div>
                             </div>
                             <div class="info-row">
-                                <div class="key">Просмотры:</div>
+                                <div class="key">Читатели:</div>
                                 <div class="value"><?php echo $manga["views"]; ?></div>
                             </div>
                         </div>
@@ -140,7 +141,7 @@ else {
             <div class="info-bar-block">
                 <h5>Обратная связь</h5>
                 <h6><a href="">Баги и предложения</a></h6>
-                <h6><a href="">О нарушении авторских прав обращайтесь сюда</a></h6>
+                <h6><a href="">Обращение</a></h6>
             </div>
             <div class="info-bar-block">
                 <h5>Соц сети</h5>
@@ -149,8 +150,8 @@ else {
             </div>
             <div class="info-bar-block">
                 <h5>О нас</h5>
-                <h6>Сайт с манго 0_о</h6>
-                <h6>Copyright © 2021 SadScream</h6>
+                <h6>Комиксы</h6>
+                <h6>Copyright © 2022 SadScream</h6>
             </div>
         </div>
     </div>

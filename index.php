@@ -7,6 +7,7 @@ require_once("database/publishers.php");
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Главная</title>
     <link rel="stylesheet" href="styles/fonts.css?<?php echo date('h:i:s'); ?>">
     <link rel="stylesheet" href="styles/base.css?<?php echo date('h:i:s'); ?>">
@@ -33,7 +34,7 @@ require_once("database/publishers.php");
             <input type="radio" name="Categories" id="manhva">
             <div id="content-popular">
                 <div id="categories-bar">
-                    <div id="categories-popular-text">Популярная манга</div>
+                    <div id="categories-popular-text">Популярное</div>
                     <div class="categories-bar-button-wrapper">
                         <label id="manga_label" for="manga">Манга</label>
                     </div>
@@ -111,7 +112,7 @@ require_once("database/publishers.php");
             <div class="info-bar-block">
                 <h5>Обратная связь</h5>
                 <h6><a href="">Баги и предложения</a></h6>
-                <h6><a href="">О нарушении авторских прав обращайтесь сюда</a></h6>
+                <h6><a href="">Обращение</a></h6>
             </div>
             <div class="info-bar-block">
                 <h5>Соц сети</h5>
@@ -120,21 +121,10 @@ require_once("database/publishers.php");
             </div>
             <div class="info-bar-block">
                 <h5>О нас</h5>
-                <h6>Сайт с манго 0_о</h6>
-                <h6>Copyright © 2021 SadScream</h6>
+                <h6>Комиксы</h6>
+                <h6>Copyright © 2022 SadScream</h6>
             </div>
         </div>
     </div>
-    <script src="scripts/jquery-3.6.0.min.js"></script>
-    <script src="scripts/adaptive-window.js"></script>
-    <script src="scripts/adaptive-window-main.js"></script>
-    <script>
-        setHeaderSize(null);
-        setContentPopularSize(null);
-        setAdditionalSize(null);
-        window.addEventListener('resize', setHeaderSize, true);
-        window.addEventListener('resize', setContentPopularSize, true);
-        window.addEventListener('resize', setAdditionalSize, true);
-    </script>
 </body>
 </html>

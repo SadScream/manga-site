@@ -1,7 +1,6 @@
 #content-bar {
     position: relative;
     background: #404154;
-    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -27,7 +26,6 @@
 #categories-bar {
     position: relative;
     width: 100%;
-    height: 12vh;
     background: #323241;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -104,11 +102,7 @@
 
 .content-popular-element-wrapper {
     position: relative;
-    width: 33vw;
-    height: 60vh;
     min-height: 380px;
-    max-height: 490px;
-    margin: 3vh 0 3vh 0; /*менять на 1vh в вертикали*/
     border-radius: 5px;
     text-align: center;
 }
@@ -126,20 +120,16 @@
 
 .content-popular-image {
     position: relative;
-    width: 35%;
     height: 45%;
     box-sizing: border-box;
     margin-left: 1vw;
     top: 1vw;
     display: flex;
-    align-items: flex-start;
     overflow: hidden;
 }
 
 .content-popular-image>img {
     position: absolute;
-    width: 100%;
-    height: 100%;
     object-fit: fill;
     border-radius: 10px;
     box-sizing: border-box;
@@ -148,13 +138,10 @@
 .content-popular-info {
     position: relative;
     top: 1vw;
-    width: calc(65% - 1vw);
-    height: 45%;
 }
 
 .content-popular-description {
     position: relative;
-    height: 40%;
     overflow: hidden;
     padding: 1vw 1vw 0 1vw;
     text-align: left;
@@ -199,15 +186,97 @@
 .content-popular-list::-webkit-scrollbar {
     width: 20px;
 }
+
 .content-popular-list::-webkit-scrollbar-track {
     background-color: transparent;
 }
+
 .content-popular-list::-webkit-scrollbar-thumb {
     background-color: #d6dee1;
     border-radius: 20px;
     border: 6px solid transparent;
     background-clip: content-box;
 }
+
 .content-popular-list::-webkit-scrollbar-thumb:hover {
     background-color: #a8bbbf;
+}
+
+@media (orientation: landscape) {
+    h4 {
+        margin-top: 5px;
+    }
+    h5 {
+        margin-top: 15px;
+    }
+    h6 {
+        margin-top: 10px;
+    }
+    #content-popular {
+        width: 72vw;
+    }
+    #categories-bar {
+        height: 12vh;
+    }
+    .content-popular-element-wrapper {
+        width: 33vw;
+        height: 60vh;
+        max-height: 490px;
+        margin: 3vh 0 3vh 0;
+    }
+    .content-popular-image {
+        width: 35%;
+        align-items: flex-start;
+        justify-content: unset;
+    }
+    .content-popular-image>img {
+        width: 100%;
+        height: 100%;
+    }
+    .content-popular-info {
+        width: calc(65% - 1vw);
+        height: 45%;
+        display: block;
+    }
+    .content-popular-description {
+        height: 40%
+    }
+}
+
+@media (orientation: portrait) {
+    h4,h5,h6 {
+        margin-top: 5px;
+    }
+    #content-popular {
+        width: 90vw;
+    }
+    #categories-bar {
+        height: 8vh;
+    }
+    .content-popular-element-wrapper {
+        width: 42vw;
+        height: 45vh;
+        max-height: 740px;
+        margin: 1vh 0 1vh 0;
+        font-size: 75%;
+    }
+    .content-popular-image {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .content-popular-image>img {
+        width: 45%;
+        height: 100%;
+    }
+    .content-popular-info {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .content-popular-description {
+        height: 20%
+    }
 }
